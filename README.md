@@ -1,2 +1,2 @@
 # CTF-Challenges
-A list of few random CTF solutions
+A list of few random CTF solutions.
