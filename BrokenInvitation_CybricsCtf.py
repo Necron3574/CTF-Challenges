@@ -1,20 +1,7 @@
-import owiener
-import random
 import math
-from sympy.ntheory import isprime
 from sympy.functions.elementary.miscellaneous import cbrt
 from Crypto.Util.number import long_to_bytes
 from sympy.ntheory.modular import crt
-import itertools
-def modular_pow(base, exponent,modulus):
-    result = 1
-    while (exponent > 0):
-        if (exponent & 1):
-            while isprime(n) == False:
-                result = (result * base) % modulus
-                exponent = exponent >> 1
-        base = (base * base) % modulus
-    return result
 
 def extended_gcd(aa, bb):
     lastremainder, remainder = abs(aa), abs(bb)
@@ -32,22 +19,6 @@ def modinv(a, m):
     if g != 1:
         raise ValueError
     return x % m
-
-def nth_root(x, n):
-    upper_bound = 1
-    while upper_bound ** n <= x:
-        upper_bound *= 2
-    lower_bound = upper_bound // 2
-    while lower_bound < upper_bound:
-        mid = (lower_bound + upper_bound) // 2
-        mid_nth = mid ** n
-        if lower_bound < mid and mid_nth < x:
-            lower_bound = mid
-        elif upper_bound > mid and mid_nth > x:
-            upper_bound = mid
-        else:
-            return mid
-    return mid + 1
 
 n1 = 924506488821656685683910901697171383575761384058997452768161613244316449994435541406042874502024337501621283644549497446327156438552952982774526792356194523541927862677535193330297876054850415513120023262998063090052673978470859715791539316871
 n2 = 88950937117255391223977435698486265468789676087383749025900580476857958577458361251855358598960638495873663408330100969812759959637583297211068274793121379054729169786199319454344007481804946263873110263761707375758247409
